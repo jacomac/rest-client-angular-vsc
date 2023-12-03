@@ -2,12 +2,12 @@ import { Component, Input } from '@angular/core';
 import { Event } from '../EventSearchResponse';
 
 @Component({
-  selector: 'event',
-  templateUrl: './event.component.html',
-  styleUrls: ['./event.component.css']
+  selector: 'item',
+  templateUrl: './item.component.html',
+  styleUrls: ['./item.component.css']
 })
 
-export class EventComponent {
+export class ItemComponent {
 
   @Input() event!: Event;
 

@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { SearchResultComponent } from './search/search-result.component';
 
 const routeConfig: Routes = [
     {
       path: '',
-      component: HomeComponent,
-      title: 'Home page'
+      component: SearchResultComponent,
+      title: 'Search Event'
     }
   ];
   

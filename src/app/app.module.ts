@@ -6,8 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { EventComponent } from './event/event.component';
+import { SearchResultComponent } from './search/search-result.component';
+import { ItemComponent } from './event/item.component';
 
 @NgModule({
   imports: [
@@ -18,8 +18,8 @@ import { EventComponent } from './event/event.component';
   ],
   declarations: [
     AppComponent,
-    HomeComponent,
-    EventComponent,
+    SearchResultComponent,
+    ItemComponent,
   ],
   bootstrap: [ AppComponent ]
 })

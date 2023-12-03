@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Event, EventSearchResponse } from '../EventSearchResponse';
-import { EventService } from '../api.service';
+import { EventService } from '../event.service';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: [ './home.component.css' ]
+  selector: 'search-result',
+  templateUrl: './search-result.component.html',
+  styleUrls: [ './search-result.component.css' ]
 })
 
-export class HomeComponent implements OnInit {
+export class SearchResultComponent implements OnInit {
   
   eventList: Event[] = [];
   private searchResponse$!: Observable<EventSearchResponse>;
