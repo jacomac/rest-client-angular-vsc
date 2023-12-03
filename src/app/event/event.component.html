@@ -1,0 +1,8 @@
+<section class="listing">
+  <img class="listing-photo" [src]="event.images[0].url" alt=" {{event.images}}">
+  <h2 class="listing-heading">{{ event.name }}</h2>
+  <p class="listing-location">{{ hasVenue()? event._embedded.venues[0].city.name : "venue unknown"}}</p>
+  <p class="listing-time"> {{event.dates.start.localDate}}, {{event.dates.start.localTime}}</p>
+  <p class="listing-price"> {{ hasPriceRange()? event.priceRanges[0].min : "price unkown"}}</p>
+  <a (click)="goToLink(event.url)">Get Ticket</a>
+</section>
