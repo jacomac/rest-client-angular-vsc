@@ -1,5 +1,17 @@
-# Ticketmaster
+# Simple Angular ReST client with search result list and details view
 
+This small Angular application shall provide a ReST client with a server-side pageable and sortable search result list 
+and a details view for selected ReST endpoints. The UI shall also be 
+easy to use on tablets and smartphones.
+
+For a server-side searchable, sortable and pageable data grid, the Angular Material data table component shall be used:
+https://blog.angular-university.io/angular-material-data-table/
+
+The app shall be configurable to work with multiple different ReST services via the environment,
+so that it can also work for Docker containers ([factor 3 within 12 factor app methodology](https://en.wikipedia.org/wiki/Twelve-Factor_App_methodology)).
+
+
+# Working with Angular
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
 
 ## Development server

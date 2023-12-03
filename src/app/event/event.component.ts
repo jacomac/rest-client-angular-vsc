@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Event } from '../TicketMasterData';
+import { Event } from '../EventSearchResponse';
 
 @Component({
   selector: 'event',

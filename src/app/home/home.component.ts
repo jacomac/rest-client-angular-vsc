@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Event, TicketMasterData } from '../TicketMasterData';
-import { ApiService } from '../api.service';
+import { Event, EventSearchResponse } from '../EventSearchResponse';
+import { EventService } from '../api.service';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
@@ -13,27 +13,19 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 export class HomeComponent implements OnInit {
   
   eventList: Event[] = [];
-  private searchResponse$!: Observable<TicketMasterData>;
+  private searchResponse$!: Observable<EventSearchResponse>;
   private searchTerms = new Subject<string>();
 
-  constructor(private service: ApiService) { }
+  constructor(private service: EventService) { }
 
   ngOnInit(): void {
-    this.getEvents();
-
     this.searchResponse$ = this.searchTerms.pipe(
       debounceTime(300),
       distinctUntilChanged(),
-      switchMap((term: string) => this.service.searchEventInGermany(term)),
+      switchMap((term: string) => this.service.searchEvents(term)),
     );
 
     this.searchResponse$.subscribe(data => this.eventList = data._embedded.events);
-  }
-
-  getEvents(): void {
-    this.service.getDiscoveryEventGermany()
-      .subscribe(data => this.eventList = data._embedded.events);
-      console.log("LIST", this.eventList)
   }
 
   search(term: string): void {

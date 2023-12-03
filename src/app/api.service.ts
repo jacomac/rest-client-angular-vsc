@@ -3,30 +3,22 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { TicketMasterData } from './TicketMasterData';
+import { EventSearchResponse } from './EventSearchResponse';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class EventService {
 
-  ticketApiKey: string = "eDqkAcI5hIr92LAEsw94WqSjELpoxFV8";
+  ticketApiKey: string = "MqTKO655uNSZydeRfag9h4Tbvbp0rTjk";
 
   constructor(private http: HttpClient) { }
 
-  getDiscoveryEventGermany(): Observable<TicketMasterData> {
-    return this.http.get<TicketMasterData>(`https://app.ticketmaster.com/discovery/v2/events.json?&apikey=${this.ticketApiKey}`)
+  searchEvents(term: String): Observable<EventSearchResponse> {
+    return this.http.get<EventSearchResponse>(`https://app.ticketmaster.com/discovery/v2/events.json?keyword=${term}&apikey=${this.ticketApiKey}`)
       .pipe(
         tap(res => console.log("success: ", res)),
-        catchError(this.handleError<TicketMasterData>('getHeroes'))
-      );
-  }
-
-  searchEventInGermany(term: String): Observable<TicketMasterData> {
-    return this.http.get<TicketMasterData>(`https://app.ticketmaster.com/discovery/v2/events.json?keyword=${term}&apikey=${this.ticketApiKey}`)
-      .pipe(
-        tap(res => console.log("success: ", res)),
-        catchError(this.handleError<TicketMasterData>('getHeroes'))
+        catchError(this.handleError<EventSearchResponse>('getHeroes'))
       );
   }
 
